@@ -1,0 +1,236 @@
+% ============================================================
+% MODELO ESTRUTURAL
+% ============================================================
+
+% -------------------------------------------------------
+\section{Modelo Estrutural}
+% -------------------------------------------------------
+
+\begin{frame}[plain]
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=12pt,center,shadow=false,rounded=true]{title}
+        {\Large\bfseries Modelo Estrutural}\\[6pt]
+        {\normalsize Equilíbrio espacial com comércio e migração custosos}
+    \end{beamercolorbox}
+    \vfill
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{Estrutura do modelo}
+    Modelo de equilíbrio geral espacial com $N$ localidades, combinando
+    \textbf{comércio custoso} (Eaton e Kortum, 2002) e \textbf{migração custosa} (Monte et al., 2018).
+
+    \vspace{0.3cm}
+
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Blocos do lado da demanda}
+            \begin{itemize}
+                \item Utilidade indireta do consumidor.
+                \item Decisão de migração com custos $\kappa_{odt}$.
+            \end{itemize}
+
+            \vspace{0.25cm}
+
+            \textbf{Blocos do lado da oferta}
+            \begin{itemize}
+                \item Comércio com produtividade Fréchet e custos iceberg $\tau_{odt}$.
+                \item Determinação de salários (mercado de bens).
+                \item Determinação de aluguéis (mercado de habitação).
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Objetivo final}
+            \begin{itemize}
+                \item Efeitos de bem-estar via mudanças em $\kappa$ e $\tau$ induzidas pelas estradas.
+            \end{itemize}
+
+            \vspace{0.25cm}
+
+            \textbf{Custos de fricção}
+            \begin{itemize}
+                \item $\kappa_{odt} \geq 1$: custo de migrar de $o$ para $d$.
+                \item $\tau_{odt} \geq 1$: custo iceberg de comerciar de $o$ para $d$.
+                \item Ambos dependem do \textbf{tempo de viagem rodoviário}.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{Utilidade do consumidor}
+    Condicional a viver em $d$, o indivíduo consome um agregado CES de bens e habitação
+    segundo uma utilidade Cobb-Douglas. A \textbf{utilidade indireta} é:
+
+    \begin{equation}\label{eq:utility}
+        V_{dt} \;\propto\; B_{dt}\; P_{dt}^{-(1-\alpha)}\; r_{dt}^{-\alpha}\; w_{dt}
+    \end{equation}
+
+    \vspace{0.1cm}
+
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Variáveis}
+            \begin{itemize}\small
+                \item $B_{dt}$: amenidade de $d$ no tempo $t$.
+                \item $P_{dt}$: índice de preços de bens tradables.
+                \item $r_{dt}$: aluguel (custo de habitação).
+                \item $w_{dt}$: salário em $d$.
+                \item $\alpha$: participação da habitação na renda.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Intuição}
+            \begin{itemize}\small
+                \item $V_{dt}$ é maior onde salários são altos, preços baixos e aluguéis baixos.
+                \item Estradas $\downarrow$ $P_{dt}$ (bens mais baratos) \textbf{e} $\downarrow$ $\kappa_{odt}$ (migrar mais fácil) $\Rightarrow$ dois canais de ganho.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{Decisão de migração}
+    Cada indivíduo $i$ em $o$ escolhe $d$ para maximizar $V_{dt}\,\kappa_{odt}^{-1}\,\xi_{dt}(i)$,
+    onde $\xi_{dt}(i)$ é um choque idiossincrático. A fração de pessoas de $o$ que migra para $d$ é:
+
+    \begin{equation}\label{eq:migration}
+        \pi_{odt}^{\text{mig}} = \frac{V_{dt}^{\,\epsilon}\;\kappa_{odt}^{-\epsilon}}{\Phi_{ot}},
+        \qquad
+        \Phi_{ot} = \sum_{d'} V_{d't}^{\,\epsilon}\;\kappa_{od't}^{-\epsilon}
+    \end{equation}
+
+    \vspace{0.4cm}
+
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Parâmetros e variáveis}
+            \begin{itemize}\small
+                \item $\epsilon$: elasticidade de migração a salários reais.
+                \item $\kappa_{odt}$: custo de migrar de $o$ para $d$.
+                \item $\Phi_{ot}$: atratividade agregada dos destinos para quem parte de $o$.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Intuição}
+            \begin{itemize}\small
+                \item Gravidade: migração $\uparrow$ com $V_{dt}$ e $\downarrow$ com $\kappa_{odt}$.
+                \item Fréchet $\Rightarrow$ fórmula fechada análoga à equação de Eaton-Kortum.
+                \item Estradas $\downarrow$ $\kappa_{odt}$ $\Rightarrow$ $\pi_{odt}^{\text{mig}}$ $\uparrow$.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{Comércio e determinação de preços}
+    Produtividade de $o$ no bem $j$: $\zeta_{ot}(j) \sim$ Fréchet($\theta$, $A_{ot}$). Com custo iceberg $\tau_{odt}$,
+    $d$ importa de quem oferece o menor preço. A \textbf{fração de bens} importada de $o$ e o \textbf{índice de preços} são:
+
+    \begin{equation}\label{eq:trade}
+        \pi_{odt}^{\text{trade}} = \frac{A_{ot}\,w_{ot}^{-\theta}\,\tau_{odt}^{-\theta}}{\Theta_{dt}},
+        \quad
+        \Theta_{dt} = \sum_{o'} A_{o't}\,w_{o't}^{-\theta}\,\tau_{o'dt}^{-\theta},
+        \quad
+        P_{dt} \propto \Theta_{dt}^{-1/\theta}
+    \end{equation}
+
+    \vspace{0.1cm}
+
+    \begin{columns}[T]
+        \begin{column}{0.52\textwidth}
+            \textbf{Variáveis}
+            \begin{itemize}\small
+                \item $A_{ot}$: produtividade média de $o$.
+                \item $\theta$: elasticidade de comércio (vantagem comparativa).
+                \item $\tau_{odt}$: custo iceberg ($\geq 1$) de $o$ para $d$.
+                \item $\Theta_{dt}$: acesso de $d$ a fontes baratas/produtivas.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.44\textwidth}
+            \textbf{Intuição}
+            \begin{itemize}\small
+                \item Estrutura análoga a \eqref{eq:migration}: gravidade com fricções.
+                \item Estradas $\downarrow$ $\tau_{odt}$ $\Rightarrow$ $\Theta_{dt}$ $\uparrow$ $\Rightarrow$ $P_{dt}$ $\downarrow$.
+                \item Locais bem conectados têm preços menores.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{Equilíbrio de salários e aluguéis}
+    \textbf{Salários -- equilíbrio no mercado de bens (Eq.~6):}
+
+    \begin{equation}\label{eq:wages}
+        w_{ot}\,L_{ot} \;=\; \sum_{d}\;\pi_{odt}^{\text{trade}}\;w_{dt}\,L_{dt}
+        \qquad \forall\; o \in \{1,\ldots,N\}
+    \end{equation}
+
+    \small Renda de $o$ = soma das exportações para todos os destinos. Sistema de $N$ equações que determina salários implicitamente.
+
+    \vspace{0.2cm}
+
+    \normalsize\textbf{Aluguéis -- equilíbrio no mercado de habitação (Eq.~8):}
+
+    \begin{equation}\label{eq:rent}
+        r_{dt} \;=\; (\nu_t)^{\frac{1}{1+\epsilon_r}} \left(\alpha\, w_{dt}\,L_{dt}\right)^{\!\frac{\epsilon_r}{1+\epsilon_r}}
+    \end{equation}
+
+    \small
+    \begin{itemize}
+        \item $\nu_t$: custo de construção; $\epsilon_r$: elasticidade inversa da oferta de habitação.
+        \item Aluguel $\uparrow$ com $L_{dt}$ e $w_{dt}$ -- aglomeração pressiona moradia.
+        \item Oferta inelástica: aluguéis absorvem ganhos salariais, comprimindo bem-estar líquido.
+    \end{itemize}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{Efeitos de bem-estar}
+    O bem-estar médio de origem $o$ é proporcional a $\Phi_{ot}^{1/\epsilon}$.
+    A \textbf{variação agregada de bem-estar} é uma média ponderada das variações de oportunidade:
+
+    \begin{align}
+        \widehat{\text{bem-estar}}_t &= \sum_o \pi_{o,t-1}^{\text{mig}}\;\widehat{\Phi}_{ot}^{\,1/\epsilon} \label{eq:welfare} \\[3pt]
+        \widehat{\Phi}_{ot} &= \sum_d \pi_{odt-1}^{\text{mig}}\;\widehat{V}_{dt}^{\,\epsilon}\;\widehat{\kappa}_{od}^{-\epsilon} \label{eq:phi} \\[3pt]
+        \widehat{V}_{dt}   &= \widehat{P}_{dt}^{-(1-\alpha)}\;\widehat{r}_{dt}^{-\alpha}\;\widehat{w}_{dt} \label{eq:vhat}
+    \end{align}
+
+    \begin{itemize}\small
+        \item \textbf{``Hat''}: $\widehat{X}_t = X_t / X_{t-1}$ -- razão entre situação nova e anterior.
+        \item $\widehat{\Phi}_{ot}$ muda quando destinos ficam mais atrativos ($\widehat{V}_{dt}$ $\uparrow$) ou migrar fica mais fácil ($\widehat{\kappa}_{od}$ $\downarrow$).
+        \item $\widehat{V}_{dt}$ melhora se salários $\uparrow$ ou preços/aluguéis $\downarrow$ -- exatamente os canais das estradas.
+        \item O modelo separa: quanto do ganho vem de $\widehat{V}$ (comércio) \textit{vs.}\ $\widehat{\kappa}$ (migração).
+    \end{itemize}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{Parâmetros estruturais estimados}
+    \begin{columns}[T]
+        \begin{column}{0.52\textwidth}
+            \footnotesize\renewcommand{\arraystretch}{1.35}
+            \begin{tabular}{llp{3cm}}
+                \toprule
+                Parâmetro & Valor & Fonte \\
+                \midrule
+                $\theta$ (comércio) & 4,0 & Simonovska-Waugh (2014) \\
+                $\epsilon$ (migração) & 4,5 & Estimado -- Seção 4 \\
+                $1/\epsilon_r$ (habitação) & 1,7 & Estimado -- Seção 4 \\
+                $\alpha$ (hab.) & calibrado & Dados de consumo \\
+                \bottomrule
+            \end{tabular}
+        \end{column}
+        \begin{column}{0.44\textwidth}
+            \vspace{-0.1cm}
+            \normalsize\textbf{Intuição dos parâmetros}
+            \begin{itemize}\small
+                \item \textbf{$\theta = 4$}: comércio responde fortemente a reduções de custo.
+                \item \textbf{$\epsilon = 4{,}5$}: heterogeneidade de gostos moderada -- migração responde, mas com fricção.
+                \item \textbf{$1/\epsilon_r = 1{,}7$}: oferta inelástica -- aluguéis comprimem bem-estar.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+
+    {\tiny\textit{$\epsilon$ e $1/\epsilon_r$: estimados via instrumento Bartik (Seção 4).}}
+\end{frame}

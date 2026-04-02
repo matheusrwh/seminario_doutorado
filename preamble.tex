@@ -1,0 +1,72 @@
+% ============================================================
+% TEMA E APARÊNCIA
+% ============================================================
+\usetheme{CambridgeUS}
+\usecolortheme{default}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{bibliography item}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[square]
+\setbeamertemplate{itemize subsubitem}[square]
+\setbeamercolor{title}{use=author in head/foot, bg=author in head/foot.bg, fg=white}
+\setbeamercolor{frametitle}{use=author in head/foot, bg=author in head/foot.bg, fg=white}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{structure}{fg=black}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamercolor{block title}{use=author in head/foot,fg=black,bg=author in head/foot.bg!20}
+\setbeamercolor{block body}{use=author in head/foot,fg=black,bg=white}
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{itemize subitem}{fg=black}
+\setbeamercolor{itemize subsubitem}{fg=black}
+\setbeamercolor{enumerate item}{fg=black}
+\setbeamercolor{enumerate subitem}{fg=black}
+\setbeamercolor{enumerate subsubitem}{fg=black}
+\setbeamercolor{section number projected}{bg=black, fg=white}
+\setbeamercolor{subsection number projected}{bg=black, fg=white}
+
+% ============================================================
+% PACOTES
+% ============================================================
+
+% Codificação e idioma
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{multirow}
+
+% Matemática
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Gráficos e tabelas
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+
+% Referências no padrão ABNT
+\usepackage[alf,bibjustif,recuo=0cm,abnt-etal-cite=4,abnt-etal-text=it]{abntex2cite}
+
+% ============================================================
+% COMANDOS CUSTOMIZADOS
+% ============================================================
+
+\newcounter{citeabntcount}
+
+% Auxiliar interno — não usar diretamente
+\newcommand{\citeabntitem}[1]{%
+    \stepcounter{citeabntcount}%
+    \ifnum\value{citeabntcount}>1\relax; \fi
+    \citeauthoronline{#1}, \citeyear{#1}%
+}
+
+% Citação ABNT: \citeabnt[p. X]{chave1,chave2}
+\newcommand{\citeabnt}[2][]{%
+    \begingroup
+    \setcounter{citeabntcount}{0}%
+    (\forcsvlist{\citeabntitem}{#2}\ifstrempty{#1}{}{, p.~#1})%
+    \endgroup
+}

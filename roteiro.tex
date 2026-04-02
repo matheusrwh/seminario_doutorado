@@ -1,0 +1,409 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{lmodern}
+
+% ---------- Cores e ambientes ----------
+\definecolor{destaque}{RGB}{0,80,155}
+\definecolor{fundo}{RGB}{240,246,255}
+\definecolor{cinzafundo}{RGB}{245,245,245}
+\definecolor{bordacinza}{RGB}{180,180,180}
+
+\mdfdefinestyle{sintese}{
+    backgroundcolor=fundo,
+    linecolor=destaque,
+    linewidth=1.2pt,
+    leftmargin=0pt, rightmargin=0pt,
+    innerleftmargin=10pt, innerrightmargin=10pt,
+    innertopmargin=8pt, innerbottommargin=8pt,
+    roundcorner=3pt
+}
+\mdfdefinestyle{tempo}{
+    backgroundcolor=cinzafundo,
+    linecolor=bordacinza,
+    linewidth=0.8pt,
+    leftmargin=0pt, rightmargin=0pt,
+    innerleftmargin=8pt, innerrightmargin=8pt,
+    innertopmargin=5pt, innerbottommargin=5pt,
+    roundcorner=2pt
+}
+
+% ---------- Seções ----------
+\titleformat{\section}{\large\bfseries\color{destaque}}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{\thesubsection\quad}
+
+\setlist[itemize]{itemsep=3pt, topsep=4pt}
+
+% ---------- Cabeçalho ----------
+\title{\textbf{Roteiro de Apresentação}\\[4pt]
+       \large Morten \& Oliveira (2023) ---
+       \textit{The Effects of Roads on Trade and Migration}}
+\author{Seminário de Doutorado}
+\date{Duração estimada: 30 minutos}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{mdframed}[style=tempo]
+\textbf{Distribuição de tempo sugerida:}
+Introdução (4 min) $\cdot$
+Estratégia Empírica (11 min) $\cdot$
+Modelo Estrutural (9 min) $\cdot$
+Resultados (4 min) $\cdot$
+Conclusão (2 min) $\cdot$
+Perguntas buffer (~2 min margem).
+\end{mdframed}
+
+\vspace{0.5cm}
+
+% ============================================================
+\section{Introdução \hfill \normalfont\small\textit{$\approx$ 4 minutos $\cdot$ slides 1--4}}
+% ============================================================
+
+\subsection*{Slide 1 --- Título}
+
+Apresente-se brevemente e anuncia o artigo. Não gaste tempo aqui.
+
+\begin{mdframed}[style=sintese]
+``O artigo que vou apresentar é de Melissa Morten e Joana Oliveira, publicado em 2023.
+O tema central é o papel das estradas sobre comércio e migração no Brasil, usando a
+construção de Brasília como experimento natural.''
+\end{mdframed}
+
+\subsection*{Slide 2 --- Motivação}
+
+\begin{itemize}
+    \item Destaque que a literatura sobre infraestrutura concentrou atenção no comércio de bens, deixando de lado o canal de migração.
+    \item As duas perguntas do artigo são complementares: a primeira é positiva (estradas promovem migração?), a segunda é normativa (quanto isso importa para o bem-estar?).
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``A pergunta central do artigo é dupla. Primeiro, uma questão positiva: estradas facilitam a
+migração interna, além do comércio? Segundo, uma questão normativa: se facilita os dois,
+qual canal gera mais bem-estar? A contribuição do artigo é responder as duas ao mesmo tempo,
+com um único arcabouço empírico e estrutural.''
+\end{mdframed}
+
+\subsection*{Slide 3 --- Contribuições}
+
+\begin{itemize}
+    \item Contribuição 1 é essencialmente identificação causal --- o instrumento MST é o ponto forte metodológico.
+    \item Contribuição 2 é o modelo estrutural --- ele permite ir além das elasticidades e falar em bem-estar.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O artigo tem duas contribuições distintas que se complementam. A parte empírica estabelece que estradas
+promovem migração de forma causal, usando um instrumento que vou detalhar daqui a pouco. A parte estrutural
+usa essas estimativas para decompor os ganhos de bem-estar entre o canal de comércio e o canal de migração.''
+\end{mdframed}
+
+\subsection*{Slide 4 --- Sumário executivo}
+
+Apresente os números principais sem entrar em detalhes. Eles voltarão mais tarde com contexto.
+
+\begin{mdframed}[style=sintese]
+``Para adiantar o resultado: a rede rodoviária de Brasília aumentou o bem-estar médio em 2,8\%.
+Três quartos desse ganho vêm do canal comercial, um quarto do canal migratório. E, surpreendentemente,
+a localização de Brasília foi ela mesma vantajosa: uma rede alternativa centrada no Rio teria gerado
+0,2 a 0,3 ponto percentual a menos de bem-estar.''
+\end{mdframed}
+
+\vspace{0.3cm}
+
+% ============================================================
+\section{Estratégia Empírica \hfill \normalfont\small\textit{$\approx$ 11 minutos $\cdot$ slides 5--13}}
+% ============================================================
+
+\subsection*{Slide 6 --- Dados}
+
+\begin{itemize}
+    \item Dados de migração vêm dos Censos: cada observação é um par (origem, destino, ano).
+    \item Dados de comércio vêm de Anuários Estatísticos, cobrem mais anos que os censos.
+    \item A malha rodoviária é reconstruída historicamente com SIG e algoritmo de \textit{fast marching} para tempo de viagem.
+    \item Ressalte que tempo de viagem (não distância) é a variável de fricção. Isso é mais preciso porque a qualidade da estrada varia.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``Uma decisão metodológica importante é usar \textit{tempo de viagem} entre centroides estaduais
+em vez de distância geográfica. Isso captura o fato de que a construção e pavimentação de rodovias
+não diminui a distância, mas diminui substancialmente o tempo de deslocamento.''
+\end{mdframed}
+
+\subsection*{Slide 7 --- Modelo de gravidade (eq.\ 1)}
+
+\begin{itemize}
+    \item A equação de gravidade é o padrão da literatura de comércio internacional, aqui aplicada a fluxos internos.
+    \item Os efeitos fixos de par $\gamma_{od}$ absorvem tudo que não varia no tempo: distância, fronteiras, cultura. O que identifica $\beta$ são as \textit{mudanças} no tempo de viagem.
+    \item $\beta < 0$ esperado: mais tempo de viagem $\Rightarrow$ menos migração/comércio.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O modelo de gravidade aqui é saturado de efeitos fixos. O par de efeitos fixos de origem-ano e destino-ano
+absorve todos os choques de cada estado em cada período. O que sobra para identificar $\beta$ é a variação
+no tempo de viagem \textit{dentro} de cada par $(o,d)$ ao longo do tempo. Isso é uma especificação bem exigente.''
+\end{mdframed}
+
+\subsection*{Slide 8 --- Identificação: o problema}
+
+\begin{itemize}
+    \item O problema de endogeneidade aqui é clássico: o governo pode construir estradas \textit{em resposta} a condições econômicas.
+    \item O viés é positivo: choques negativos geram tanto menos migração/comércio quanto mais investimento em infraestrutura. O MQO captura isso e subestima o efeito real das estradas.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O problema é que a alocação de estradas não é aleatória. Se o governo tende a construir estradas
+onde a economia está em dificuldade, a correlação entre estradas e comércio/migração vai ser menor
+do que o efeito real. O MQO vai \textit{subestimar} o impacto causal --- e é exatamente isso que vamos ver nos resultados.''
+\end{mdframed}
+
+\subsection*{Slides 9--10 --- O instrumento MST}
+
+\begin{itemize}
+    \item Explique com calma os quatro passos: centrar em Brasília, dividir em oito fatias, menor caminho em cada fatia, unir.
+    \item A intuição chave: a rede predita pelo MST é determinada por geometria e pela localização da capital --- não por demanda econômica entre pares de estados.
+    \item O mapa (Fig.\ 1) ajuda muito: mostre que a rede real e a MST se sobrepõem parcialmente, mas a MST corta por caminhos que não seriam escolhidos por demanda econômica pura.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``A ideia do instrumento é engenhosa. A pergunta que o MST responde é: \textit{se o único objetivo
+fosse conectar Brasília às capitais estaduais pelo caminho mais curto em cada direção cardinal,
+como seria a rede?} Essa rede hipotética gera variação no tempo de viagem entre pares de estados
+que é determinada pela geometria do país e pela localização da capital --- não por qualquer
+demanda econômica bilateral. É essa variação que identifica o efeito causal das estradas.''
+\end{mdframed}
+
+\subsection*{Slide 11 --- Especificação com instrumento (eq.\ 2)}
+
+\begin{itemize}
+    \item O instrumento é invariante no tempo porque a rede MST é uma característica geográfica fixa de cada par.
+    \item Os $\alpha_t$ variam por ano: permitem testar em \textit{que momento} os efeitos aparecem.
+    \item Normalização em 1950 (pré-Brasília) permite teste de pré-tendências.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O instrumento em si não varia no tempo --- ele é uma propriedade geométrica fixa do par $(o,d)$.
+O que varia é \textit{quando} esse instrumento se torna relevante: antes de Brasília existir, a rede MST
+não tinha correspondência real. Depois de 1960, a rede efetiva começa a se aproximar da rede predita.
+Os $\alpha_t$ capturam exatamente essa dinâmica.''
+\end{mdframed}
+
+\subsection*{Slide 12 --- Efeitos ao longo do tempo (Fig.\ 2)}
+
+\begin{itemize}
+    \item Três painéis: tempo de viagem, migração, comércio. Todos normalizados em 1950.
+    \item Coeficiente de 1940 não significativo: sem pré-tendência. Isso valida o instrumento.
+    \item Após 1960: queda brusca no tempo de viagem, alta em migração e comércio.
+    \item Coeficientes de 1960: +0,4 migração, +1,4 comércio para uma redução de 10 p.p. MST-predita.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O teste de pré-tendências é essencial para qualquer instrumento desse tipo. Se em 1940 o coeficiente
+já fosse significativo, indicaria que o MST estava capturando algo relacionado a tendências econômicas
+pré-existentes. O fato de o coeficiente de 1940 não diferir de zero é o sinal verde para a validade do instrumento.
+A quebra estrutural em 1960 é exatamente o que esperamos: Brasília foi inaugurada em abril de 1960.''
+\end{mdframed}
+
+\subsection*{Slide 13 --- Tabela 1 e principais achados}
+
+\begin{itemize}
+    \item Compare MQO vs.\ VI: o VI sistematicamente maior em módulo confirma subestimação do MQO.
+    \item Colunas PPML com função de controle: robusto a zeros --- importante porque vários pares têm fluxo zero.
+    \item Destacar robustez: excluir pares com Goiás não altera os resultados.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O resultado mais importante da tabela é a diferença entre MQO e VI. Para migração, o MQO dá $-0{,}33$
+e o VI dá $-1{,}75$ --- cinco vezes maior em módulo. Para comércio, $-0{,}78$ vs.\ $-1{,}90$.
+Isso confirma o viés previsto: o governo realmente construiu mais estradas onde a economia sofria,
+comprimindo artificialmente a correlação observada. O efeito real das estradas é substancialmente maior.''
+\end{mdframed}
+
+\vspace{0.3cm}
+
+% ============================================================
+\section{Modelo Estrutural \hfill \normalfont\small\textit{$\approx$ 9 minutos $\cdot$ slides 14--21}}
+% ============================================================
+
+\subsection*{Slide 15 --- Estrutura do modelo}
+
+\begin{itemize}
+    \item Dois blocos emprestados da literatura: Eaton-Kortum (2002) para comércio, Monte et al.\ (2018) para migração.
+    \item O que é novo é a combinação dos dois em equilíbrio geral, permitindo a decomposição.
+    \item Destaque os dois parâmetros de fricção: $\tau_{odt}$ (custo iceberg de comércio) e $\kappa_{odt}$ (custo de migração). Ambos dependem do tempo de viagem --- esse é o elo entre a evidência empírica e o modelo.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O modelo combina dois ingredientes conhecidos: a estrutura Fréchet de Eaton-Kortum para comércio
+e a decisão de migração discreta com custos de Monte et al. O que os autores fazem de novo é
+colocar os dois num mesmo equilíbrio geral e disciplinar os parâmetros de fricção com as estimativas
+do instrumental da parte empírica.''
+\end{mdframed}
+
+\subsection*{Slide 16 --- Utilidade do consumidor (eq.\ 3)}
+
+\begin{itemize}
+    \item A equação de utilidade indireta é o ponto de partida do bem-estar.
+    \item Estradas afetam $V_{dt}$ por dois caminhos simultâneos: reduzem $P_{dt}$ (via comércio mais barato) e reduzem $\kappa_{odt}$ (via migração mais fácil). Esses são os dois canais da decomposição.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``A utilidade indireta captura tudo que importa para o bem-estar de quem vive em $d$:
+salários, nível de preços de bens tradable e custo de moradia. As estradas entram por $P_{dt}$
+--- bens importados ficam mais baratos --- e por $\kappa_{odt}$ --- é mais fácil migrar para
+um destino melhor. Os dois canais operam simultaneamente, por isso precisamos do modelo para separá-los.''
+\end{mdframed}
+
+\subsection*{Slide 17 --- Decisão de migração (eq.\ 4)}
+
+\begin{itemize}
+    \item Estrutura logit Fréchet: a probabilidade de migrar para $d$ aumenta com $V_{dt}$ e cai com $\kappa_{odt}$.
+    \item $\epsilon$ é a elasticidade de migração. Estimado em 4,5 --- heterogeneidade moderada nas preferências.
+    \item A fórmula fechada é análoga à de Eaton-Kortum: a divisão pelo denominador $\Phi_{ot}$ garante que as probabilidades somem 1.
+\end{itemize}
+
+\subsection*{Slide 18 --- Comércio e preços (eq.\ 5)}
+
+\begin{itemize}
+    \item Estrutura idêntica à de migração, com os parâmetros trocados: $\theta$ em vez de $\epsilon$, $\tau$ em vez de $\kappa$.
+    \item A analogia entre as duas equações é didaticamente importante: o mesmo framework cobre bens e pessoas.
+    \item $P_{dt}$ cai com $\Theta_{dt}$: quanto mais fontes baratas/produtivas $d$ acessa, menor seu nível de preços.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``Uma elegância do modelo é que as equações de comércio e migração têm a mesma estrutura matemática.
+Em ambas, a fração de bens (ou de pessoas) que flui de $o$ para $d$ é proporcional à atratividade
+de $d$ dividida pela soma de atratividade de todos os destinos. A diferença está nos parâmetros e
+nas fricções: $\tau$ para bens, $\kappa$ para pessoas.''
+\end{mdframed}
+
+\subsection*{Slide 19 --- Equilíbrio de salários e aluguéis (eqs.\ 6--7)}
+
+\begin{itemize}
+    \item Equação de salários é market-clearing do mercado de bens: renda de $o$ deve igualar exportações totais de $o$.
+    \item Equação de aluguéis: aluguel cresce com população e salários --- aglomeração pressiona moradia.
+    \item Destaque a tensão: estradas aumentam salários e população, mas também sobem aluguéis. O bem-estar líquido é ambíguo \textit{a priori} --- é por isso que precisamos do modelo.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O mercado de habitação é importante para disciplinar os ganhos de bem-estar. Se a oferta de
+moradia for inelástica --- e $1/\epsilon_r = 1{,}7$ sugere que é --- aluguéis vão subir com
+o influxo de trabalhadores e absorver parte do ganho salarial. Isso cria um mecanismo de
+compressão dos ganhos que é heterogêneo: estados que atraem muita migração sofrem mais
+pressão de aluguéis.''
+\end{mdframed}
+
+\subsection*{Slide 20 --- Efeitos de bem-estar (eqs.\ 8--10)}
+
+\begin{itemize}
+    \item O método ``hat'' ($\widehat{X} = X_{\mathrm{novo}} / X_{\mathrm{ant}}$) é padrão em comércio internacional desde Dekle et al.\ (2008). Permite calcular mudanças de equilíbrio sem precisar do nível absoluto dos dados.
+    \item Bem-estar agregado é média ponderada das variações de $\Phi_{ot}^{1/\epsilon}$ sobre origens.
+    \item A decomposição sai naturalmente: fixar $\hat\kappa = 1$ (sem mudança nos custos de migração) mostra o ganho puramente comercial, e vice-versa.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``A decomposição é operacionalizada pelo método hat: você resolve o equilíbrio duas vezes.
+Na primeira, permite que tanto $\tau$ quanto $\kappa$ mudem. Na segunda, mantém $\kappa$ fixo
+em 1 e deixa só $\tau$ variar. A diferença entre os dois cenários é o quanto do ganho total
+vem exclusivamente da melhora na mobilidade de pessoas.
+Isso não seria possível sem o modelo estrutural --- a parte econométrica sozinha não consegue separar os canais.''
+\end{mdframed}
+
+\subsection*{Slide 21 --- Parâmetros estruturais}
+
+\begin{itemize}
+    \item $\theta = 4$ é externo (Simonovska e Waugh, 2014) --- padrão na literatura.
+    \item $\epsilon = 4{,}5$ e $1/\epsilon_r = 1{,}7$ são estimados pelos próprios autores via instrumento Bartik.
+    \item Ressalte que os parâmetros são modestos o suficiente para não gerar resultados mecânicos: o resultado de 76/24 não está embutido nas hipóteses.
+\end{itemize}
+
+\vspace{0.3cm}
+
+% ============================================================
+\section{Resultados \hfill \normalfont\small\textit{$\approx$ 4 minutos $\cdot$ slides 22--24}}
+% ============================================================
+
+\subsection*{Slide 22 --- Decomposição do bem-estar}
+
+\begin{itemize}
+    \item Número central: +2,8\% de bem-estar médio com a rede de Brasília vs.\ ausência de estradas.
+    \item A decomposição 76/24 é o resultado que justifica o título do artigo: \textit{roads affect both, but trade dominates}.
+    \item Por que o canal de comércio domina? Porque $\theta = 4$ amplifica muito as reduções em $\tau$, e os custos de comércio caíram 9\% contra 8\% nos custos de migração --- uma diferença pequena que o parâmetro amplifica.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O canal de comércio domina por duas razões. Primeira, a elasticidade de comércio $\theta = 4$
+é maior que a elasticidade de migração $\epsilon = 4{,}5$... espera, os parâmetros são próximos.
+O que diferencia é a \textit{magnitude} dos canais na utilidade: o índice de preços afeta diretamente
+o bem-estar de toda a população do destino, enquanto o ganho de migração beneficia diretamente
+apenas quem de fato migra. Como a maioria das pessoas não muda de estado, o canal comercial
+tem uma base muito maior.''
+\end{mdframed}
+
+\subsection*{Slide 23 --- Heterogeneidade espacial}
+
+\begin{itemize}
+    \item A amplitude 1\%--15\% mostra que os ganhos são muito desiguais entre estados.
+    \item A comparação com mobilidade perfeita é o diagnóstico: se todos migrassem livremente, os ganhos seriam equalizados. A heterogeneidade observada é inteiramente gerada pelos custos de migração.
+    \item O contrafactual Rio de Janeiro: ressalte que a diferença de 0,2 p.p.\ é pequena em termos absolutos, mas significativa considerando que estamos comparando duas localizações de capital igualmente prováveis.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O resultado de heterogeneidade espacial tem implicação de política clara: simplesmente
+construir estradas não é suficiente para equalizar bem-estar entre regiões. Os custos
+de migração agem como fricção que impede que os trabalhadores de estados menos conectados
+se beneficiem plenamente da integração. Políticas complementares de mobilidade --- subsídios
+de relocação, acesso a informação sobre mercados de trabalho --- teriam valor expressivo.''
+\end{mdframed}
+
+\subsection*{Slide 24 --- Resultados principais (resumo da Tabela 1)}
+
+Caso o tempo ainda permita, você pode revisitar rapidamente os achados econométricos antes de concluir. Caso contrário, siga direto para a conclusão.
+
+\vspace{0.3cm}
+
+% ============================================================
+\section{Conclusão \hfill \normalfont\small\textit{$\approx$ 2 minutos $\cdot$ slide 25}}
+% ============================================================
+
+\subsection*{Slide 25 --- Conclusão}
+
+\begin{itemize}
+    \item Recapitule as duas contribuições: evidência causal de que estradas promovem migração + decomposição do bem-estar.
+    \item Implicação para a literatura: a desconsideração do canal de migração em estudos anteriores de infraestrutura provavelmente subestimou os ganhos totais de bem-estar.
+    \item Deixe aberto para perguntas; o artigo tem várias extensões (heterogeneidade de trabalhadores por qualificação, efeitos de longo prazo) que podem surgir na discussão.
+\end{itemize}
+
+\begin{mdframed}[style=sintese]
+``O artigo deixa uma lição metodológica importante: quando estimamos o impacto de infraestrutura
+usando apenas dados de comércio, capturamos no máximo 76\% do efeito de bem-estar. O canal
+migratório, embora menor, não é negligenciável --- e é ele que explica por que os ganhos não
+são uniformes no espaço. Para políticas de desenvolvimento regional, ignorar esse canal significa
+subestimar tanto os benefícios da infraestrutura quanto sua capacidade de ampliar desigualdades regionais.''
+\end{mdframed}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.3cm}
+
+\subsection*{Pontos que costumam gerar perguntas}
+
+\begin{itemize}
+    \item \textbf{Validade externa do instrumento:} o MST é específico ao Brasil e à decisão de construir Brasília. Como generalizar? O artigo argumenta que o mecanismo --- fricção de custo reduzida por estradas --- é geral; o instrumento é o meio de identificá-lo.
+    \item \textbf{Por que o MQO subestima (e não superestima)?} Porque o governo construiu estradas \textit{onde a economia estava mal}, criando correlação espúria negativa entre infraestrutura e atividade econômica.
+    \item \textbf{O papel de Goiás:} Como Brasília fica em Goiás, pares envolvendo esse estado poderiam capturar efeitos da capital em si. A robustez de excluir Goiás descarta isso.
+    \item \textbf{Habitação inelástica:} Um crítico pode perguntar se $\epsilon_r = 1/1{,}7$ é razoável para o Brasil dos anos 1960--2000. Resposta: é estimado pelos dados, não calibrado ad hoc.
+    \item \textbf{Migração vs.\ comércio: complementares ou substitutos?} No modelo, são complementares: estradas que facilitam comércio também atraem trabalhadores, e mais trabalhadores geram mais produção e mais comércio.
+\end{itemize}
+
+\end{document}
