@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1775149621.3595 "c:/Users/mathe/Documents/Projetos/LaTeX/seminario_doutorado/presentation.tex" "presentation.pdf" "presentation" 1775149623.158 0
+["pdflatex"] 1775150563.12948 "c:/Users/mathe/Documents/Projetos/LaTeX/seminario_doutorado/presentation.tex" "presentation.pdf" "presentation" 1775150564.86815 0
   "C:/Users/mathe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775090083 173183 f71b39c5449d20d90a50e8386c4ffbb0 ""
   "C:/Users/mathe/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsi0600.pk" 1774723077 14792 29fe4daa2abefd461f90ce122958bff2 ""
   "C:/Users/mathe/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsi1000.pk" 1774190021 24544 37f3558d4771955f78944b35ec455b93 ""
@@ -255,15 +255,15 @@
   "figures/fig2.png" 1775081286 112294 1ab0816c33279ac601491ce21cd77092 ""
   "metadata.tex" 1774997236 688 c5cb7136cb2fb7456aadc3590b19ab39 ""
   "preamble.tex" 1774994281 2545 c9b0370e5a73543d6c5fdd2bdbcba5c7 ""
-  "presentation.aux" 1775149622 6661 15945ec85cecb959a28fcffad285907e "pdflatex"
-  "presentation.nav" 1775149622 3488 502348a3fb744ed76658532644992b77 "pdflatex"
-  "presentation.out" 1775149622 561 f2e1ee5f7c681fe22a62889360948001 "pdflatex"
+  "presentation.aux" 1775150564 6661 15945ec85cecb959a28fcffad285907e "pdflatex"
+  "presentation.nav" 1775150564 3488 502348a3fb744ed76658532644992b77 "pdflatex"
+  "presentation.out" 1775150564 561 f2e1ee5f7c681fe22a62889360948001 "pdflatex"
   "presentation.tex" 1774994260 125 f4fe3ce980a435cf0082b17b09f37828 ""
   "slides.tex" 1774994296 254 148be107595a57a98e7e6bbaeb05e005 ""
   "slides_conclusao.tex" 1775127078 1078 c73dc0dfc174282d5dc279a92e27cbbd ""
   "slides_empirica.tex" 1775149620 9786 1d98fd2779d370594eb44ad469de6e21 ""
   "slides_intro.tex" 1774994571 2260 db54026e14ca32d653b21568b1b7db5c ""
-  "slides_modelo.tex" 1775127306 10628 7288642a89ef61cd1bc8cb841036b3e9 ""
+  "slides_modelo.tex" 1775150562 10511 7faa0c46303b817a5e2fdb25a2d313c9 ""
   "slides_resultados.tex" 1775127048 3291 c998a2891474f5c607c14ab59d374312 ""
   (generated)
   "presentation.aux"
