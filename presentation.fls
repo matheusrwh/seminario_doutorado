@@ -407,7 +407,6 @@ INPUT .\slides_empirica.tex
 INPUT .\slides_empirica.tex
 INPUT .\slides_empirica.tex
 INPUT slides_empirica.tex
-INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecsi1095.tfm
 INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
 INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
 INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
@@ -437,6 +436,7 @@ INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\tex\latex\sansmathaccent\ot1m
 INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\sansmathaccent\mathkerncmssi10.tfm
 INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\sansmathaccent\mathkerncmssi8.tfm
 INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\sansmathaccent\mathkerncmssi8.tfm
+INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecsi1095.tfm
 INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss10.tfm
 INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
 INPUT C:\Users\mathe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
